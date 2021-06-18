@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -232,6 +236,7 @@ a.pure-button-primary {
     position: fixed;
     bottom: 0;
     width: 100%;
+    margin-top: 100vh;
 }
 
 /*
@@ -290,4 +295,28 @@ a.pure-button-primary {
     .splash-head {
         font-size: 300%;
     }
+}
+
+
+
+/*main grid*/
+
+.main-grid {
+	margin-top: 20vh;
+}
+
+.tour-photos, #map-grid {
+	min-height: 60vh;
+	border: 5px solid aqua;
+}
+
+#map-grid {
+	margin-bottom: 25vh;
+	position: relative;
+	min-width: 400px;
+	height: auto;
+}
+
+.right {
+	text-align: right;
 }
