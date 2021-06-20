@@ -307,7 +307,7 @@ a.pure-button-primary {
 
 .tour-photos, #map-grid {
 	min-height: 60vh;
-	border: 5px solid aqua;
+	border: 1px solid aqua;
 }
 
 #map-grid {
