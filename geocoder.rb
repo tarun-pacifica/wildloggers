@@ -5,5 +5,7 @@ location_list = ["Delhi, India", "Gorakhpur, India", "Siliguri, India", "Guwahat
 
 location_list.each_with_index do |location, index|
 	results = Geocoder.search location
-	puts "{text: 'Day #{index+1}', lat: #{results.first.coordinates[0]}, long: #{results.first.coordinates[1]}}, " 
+	puts "{name: '#{ location.split(', ')[0]}', text: 'Day #{index+1}', lat: #{results.first.coordinates[0]}, long: #{results.first.coordinates[1]}}, " 
 end
+
+binding.pry
