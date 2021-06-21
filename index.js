@@ -4,50 +4,50 @@ function changeDescription(item, index) {
     document.getElementById("desc-name").innerText = ": " + (item.name)
 }
 
-        //Create an SVG string of a circle with the specified radius and color.
-        var svg = ['<svg xmlns="http://www.w3.org/2000/svg" width="', (radius * 2),
-            '" height="', (radius * 2), '"><circle cx="', radius, '" cy="', radius, '" r="',
-            (radius - strokeWidth), '" stroke="', strokeColor, '" stroke-width="', strokeWidth, '" fill="', fillColor, '"/></svg>'
-        ];
+function createCirclePushpin(text, location, radius, fillColor, strokeColor, strokeWidth) {
+    strokeWidth = strokeWidth || 0;
 
-        //Create a pushpin from the SVG and anchor it to the center of the circle.
-        return new Microsoft.Maps.Pushpin(location, {
-        	text : text,
-            icon: svg.join(''),
-            anchor: new Microsoft.Maps.Point(radius, radius)
-        });
-    }
+    //Create an SVG string of a circle with the specified radius and color.
+    var svg = ['<svg xmlns="http://www.w3.org/2000/svg" width="', (radius * 2),
+        '" height="', (radius * 2), '"><circle cx="', radius, '" cy="', radius, '" r="',
+        (radius - strokeWidth), '" stroke="', strokeColor, '" stroke-width="', strokeWidth, '" fill="', fillColor, '"/></svg>'
+    ];
 
-    function addHandler(pin) {
-        Microsoft.Maps.Events.addHandler(pin, 'click', function(e) {
-            console.log('click');
-        });
+    //Create a pushpin from the SVG and anchor it to the center of the circle.
+    return new Microsoft.Maps.Pushpin(location, {
+        text: text,
+        icon: svg.join(''),
+        anchor: new Microsoft.Maps.Point(radius, radius)
+    });
+}
 
-        Microsoft.Maps.Events.addHandler(pin, 'mouseover', function(e) {
-            e.target.setOptions({ color: "red" });
-            console.log('mouseover');
-        });
+function addHandler(pin, item, index) {
+    console.log(`${index}`);
+    Microsoft.Maps.Events.addHandler(pin, 'click', function(e) {
+        console.log(`click ${index}`);
+        changeDescription(item, index)
+    });
 
-        Microsoft.Maps.Events.addHandler(pin, 'mouseout', function(e) {
-            e.target.setOptions({ color: "green" });
-            console.log('mouseout');
-        });
+    Microsoft.Maps.Events.addHandler(pin, 'mouseover', function(e) {
+        e.target.setOptions({ color: "red" });
+        console.log('mouseover');
+    });
+
+    Microsoft.Maps.Events.addHandler(pin, 'mouseout', function(e) {
+        e.target.setOptions({ color: "green" });
+        console.log('mouseout');
+    });
 
 
-    }
+}
 
-    function mapper() {
-        let map = window.map = new Microsoft.Maps.Map('#map-grid', {
-            zoom: 6
-        });
-
-        window.locationPins = []
+function mapper() {
+    let map = window.map = new Microsoft.Maps.Map('#map-grid', {
+        zoom: 6
+    });
 
     window.locationPins = []
 
-        map.setView({
-            center: new Microsoft.Maps.Location(locations[1].lat, locations[1].long)
-        })
 
     let locations = window.locations = [
         { name: 'Delhi', text: '1', lat: 28.6517178, long: 77.2219388 },
@@ -64,4 +64,19 @@ function changeDescription(item, index) {
         center: new Microsoft.Maps.Location(locations[2].lat, locations[2].long)
     })
 
-    // colour of map / multiple markers / clickable / display info
+    locations.forEach(function(item, index) {
+        console.log("index:" + index)
+        var location = new Microsoft.Maps.Location(item.lat, item.long);
+        window.locationPins.push(location);
+        const pin = createCirclePushpin(item.text, location, 14, 'rgb(136, 220, 238)', 'black', 1)
+        map.entities.push(pin);
+        addHandler(pin, item, index);
+    });
+    let polyline = new Microsoft.Maps.Polyline(window.locationPins, {
+        strokeColor: 'rgb(136, 220, 238)',
+        strokeThickness: 3
+    });
+    map.entities.push(polyline);
+};
+
+// colour of map / multiple markers / clickable / display info

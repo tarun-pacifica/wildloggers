@@ -31,7 +31,16 @@
 						<div class="pure-u-1-5 right"><a href=""><h5>Share with friends & family</h5></a></div>
 					</div>
 					<div class="tour-photos">
-						<h3>PHOTO GRID</h3>
+						<div class="pure-g">
+							<div class="p-place pure-u-1-4"><p>PHOTO 1</p></div>
+							<div class="p-place pure-u-1-2">
+								<div class="pure-g">
+									<div class="p-place pure-u-3-5"><p>Photo 2</p></div>
+									<div class="p-place pure-u-2-5"><p>Photo 3</p></div>
+								</div>
+							</div>
+							<div class="p-place pure-u-1-4"><p>Photo 4</p></div>
+						</div>
 					</div>
 					<div class="pure-g">
 						<h3 class="pure-u-3-5">Experience hosted by Rajatesh Maji</h3>
@@ -58,26 +67,36 @@
 					</div>
 					<div class="pure-u-11/12">
 						<h3>Where you'll be</h3>
-						<div id="map-grid">
-							<h3>MAP GRID</h3>
+						<div class="pure-g">
+							<div id="map-grid" class="p-place pure-u-3-5"></div>
+							<div id="map-text" class="p-place pure-u-2-5">
+								<h3 class="is-center"><span id="desc-header">Day 1</span><span id="desc-name"></span></h3>
+								<h4>Description:</h4>
+								<p id="desc-text"></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
 					</div>
 				</div>
-				<div class="pure-u-1-12 gutter"></div>
-				<br>
 			</div>
-		</div>
-		<div class="footer l-box is-center">
-			<div class="pure-menu pure-menu-horizontal">
-				<ul class="pure-menu-list">
-					<li class="pure-menu-item"><a href="#" class="pure-menu-link">FACEBOOK</a></li>
-					<li class="pure-menu-item"><a href="#" class="pure-menu-link">INSTAGRAM</a></li>
-					<li class="pure-menu-item"><a href="#" class="pure-menu-link">YOUTUBE</a></li>
-				</ul>
-			</div>
+			<div class="pure-u-1-12 gutter"></div>
+			<br>
 		</div>
 	</div>
-	<script defer src="../index.js"></script>
-	<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=mapper&branch=release&key=Aq-oBgAbnEfbRo6ARX2IxjBBmZuaPPWxH-DcDZdLenpm1GolGUADGwnJfy6oDTHG' async defer></script>
+	<div class="footer l-box is-center">
+		<div class="pure-menu pure-menu-horizontal">
+			<ul class="pure-menu-list">
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link">FACEBOOK</a></li>
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link">INSTAGRAM</a></li>
+				<li class="pure-menu-item"><a href="#" class="pure-menu-link">YOUTUBE</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script defer src="../index.js"></script>
+<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=mapper&branch=release&key=Aq-oBgAbnEfbRo6ARX2IxjBBmZuaPPWxH-DcDZdLenpm1GolGUADGwnJfy6oDTHG' async defer></script>
 </body>
 </html>
