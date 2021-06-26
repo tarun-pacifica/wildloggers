@@ -1,3 +1,60 @@
+(function(window, document) {
+
+    var videoHeight = document.getElementById('video').style.height;
+    var clearBoxes = Array.from(document.getElementsByClassName('clear-box'));
+    clearBoxes.forEach(function(box){
+        box.style.height = 315;
+    })
+
+
+    .style.height = videoHeight;
+
+    var menu = document.getElementById('menu'),
+        rollback,
+        WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange' : 'resize';
+
+    function toggleHorizontal() {
+        menu.classList.remove('closing');
+        [].forEach.call(
+            document.getElementById('menu').querySelectorAll('.custom-can-transform'),
+            function(el) {
+                el.classList.toggle('pure-menu-horizontal');
+            }
+        );
+    };
+
+    function toggleMenu() {
+        // set timeout so that the panel has a chance to roll up
+        // before the menu switches states
+        if (menu.classList.contains('open')) {
+            menu.classList.add('closing');
+            rollBack = setTimeout(toggleHorizontal, 500);
+        } else {
+            if (menu.classList.contains('closing')) {
+                clearTimeout(rollBack);
+            } else {
+                toggleHorizontal();
+            }
+        }
+        menu.classList.toggle('open');
+        document.getElementById('toggle').classList.toggle('x');
+    };
+
+    function closeMenu() {
+        if (menu.classList.contains('open')) {
+            toggleMenu();
+        }
+    }
+
+    document.getElementById('toggle').addEventListener('click', function(e) {
+        toggleMenu();
+        e.preventDefault();
+    });
+
+    window.addEventListener(WINDOW_CHANGE_EVENT, closeMenu);
+})(this, this.document);
+
+
 function changeDescription(item, index) {
     document.getElementById("desc-header").innerText = "Day " + (index + 1)
     document.getElementById("desc-text").innerText = "We depart " + (item.name) + " at " + (index + 6) + "am. "

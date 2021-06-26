@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -16,6 +16,13 @@ body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
+    font-family: 'Spartan', sans-serif;
+    /*    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+*/
 }
 
 h1,
@@ -29,7 +36,7 @@ label {
 }
 
 .logo {
-	max-width: 30%;	
+    max-width: 30%;
 }
 
 .pure-img-responsive {
@@ -47,7 +54,7 @@ label {
 
 .l-box-lrg {
     padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .is-center {
@@ -101,11 +108,13 @@ a.pure-button-primary {
 .home-menu {
     padding: 0.5em;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
+
 .home-menu {
     background: #f7f7f7;
 }
+
 .pure-menu.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
@@ -126,6 +135,7 @@ a.pure-button-primary {
 .home-menu a {
     color: #6FBEF3;
 }
+
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
@@ -139,7 +149,8 @@ a.pure-button-primary {
  * This is the blue top section that appears on the page.
  */
 
-.splash-container, .video {
+.splash-container,
+#video {
     background: #1f8dd6;
     /*z-index: 1;*/
     overflow: hidden;
@@ -159,7 +170,10 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
     text-align: center;
     text-transform: uppercase;
 }
@@ -194,13 +208,19 @@ a.pure-button-primary {
     width: 100%;
     min-height: 12%;
     z-index: 2;
-    background: white;
+    /*background: white;*/
+    background-color: transparent;
 
 }
 
 /* We want to give the content area some more padding */
 .content {
-    padding: 1em 1em 3em;
+    padding: 1em 0 3em 0;
+}
+
+.clear-box {
+    min-height: 30vh;
+    background-color: transparent;
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -220,9 +240,10 @@ a.pure-button-primary {
 .content-subhead {
     color: #1f8dd6;
 }
-    .content-subhead i {
-        margin-right: 7px;
-    }
+
+.content-subhead i {
+    margin-right: 7px;
+}
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
@@ -254,15 +275,16 @@ a.pure-button-primary {
     /* We can align the menu header to the left, but float the
     menu items to the right. */
     .home-menu {
-    	box-shadow: 0 3px 4px rgb(0 0 0 / 20%);
+        box-shadow: 0 3px 4px rgb(0 0 0 / 20%);
         text-align: left;
     }
-        .home-menu ul {
-            float: right;
-        }
+
+    .home-menu ul {
+        float: right;
+    }
 
     /* We increase the height of the splash-container */
-/*    .splash-container {
+    /*    .splash-container {
         height: 500px;
     }*/
 
@@ -291,6 +313,7 @@ a.pure-button-primary {
  * of the mobile and tablet styles.
  */
 @media (min-width: 78em) {
+
     /* We increase the header font size even more */
     .splash-head {
         font-size: 300%;
@@ -302,28 +325,121 @@ a.pure-button-primary {
 /*main grid*/
 
 .main-grid {
-	margin-top: 20vh;
+    margin-top: 20vh;
 }
 
-.tour-photos, #map-grid {
-	min-height: 60vh;
+.tour-photos,
+#map-grid {
+    min-height: 60vh;
 }
 
-#map-grid, #map-text {
-	margin-bottom: 25vh;
+#map-grid,
+#map-text {
+    margin-bottom: 25vh;
 }
-#map-grid.{
-	position: relative;
-	max-width: 75%;
-	height: auto;
+
+#map-grid. {
+    position: relative;
+    max-width: 75%;
+    height: auto;
 }
 
 .right {
-	text-align: right;
+    text-align: right;
 }
 
 .p-place {
-	min-height: 60vh;
-	background-color: #f7f7f7;
-	border: 0.4vw solid #fff;
+    min-height: 60vh;
+    background-color: #f7f7f7;
+    border: 0.4vw solid #fff;
+}
+
+
+.custom-wrapper {
+    background-color: transparent;
+    /*background-color: #ffd390;*/
+    margin-bottom: 1em;
+    -webkit-font-smoothing: antialiased;
+    height: 2.1em;
+    overflow: hidden;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+.custom-wrapper.open {
+    height: 14em;
+}
+
+.custom-menu-3 {
+    text-align: right;
+}
+
+.custom-toggle {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.custom-toggle .bar {
+    background-color: #777;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 100px;
+    position: absolute;
+    top: 18px;
+    right: 7px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.custom-toggle .bar:first-child {
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    transform: translateY(-6px);
+}
+
+.custom-toggle.x .bar {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.custom-toggle.x .bar:first-child {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 47.999em) {
+
+    .custom-menu-3 {
+        text-align: left;
+    }
+
+    .custom-toggle {
+        display: block;
+    }
+
+}
+
+#about-us, #register {
+    background-color: #fff;
+    display: inherit;
+    padding: 2vh;
+}
+
+#upcoming img {
+    max-width: 50vh;
+    vertical-align: middle;
 }
