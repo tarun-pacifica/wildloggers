@@ -439,7 +439,11 @@ a.pure-button-primary {
     padding: 2vh;
 }
 
+ #upcoming {
+    background-color: white;
+ }
 #upcoming img {
     max-width: 50vh;
     vertical-align: middle;
+    background-color: white;
 }
