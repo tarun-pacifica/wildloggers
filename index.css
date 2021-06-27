@@ -441,9 +441,10 @@ a.pure-button-primary {
 
  #upcoming {
     background-color: white;
+    padding: 2vw;
  }
 #upcoming img {
-    max-width: 50vh;
+    max-width: 55vh;
     vertical-align: middle;
     background-color: white;
 }
